@@ -14,3 +14,9 @@ struct Student {
 
 
 };
+
+
+void main()
+{
+
+}
