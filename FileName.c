@@ -3,3 +3,14 @@
 #include<malloc.h>
 #include <string.h>
 #include<stdlib.h>
+
+struct Student {
+	int id;
+	int varsta;
+	char* nume;
+	float medie;
+	char initialaTata;
+
+
+
+};
