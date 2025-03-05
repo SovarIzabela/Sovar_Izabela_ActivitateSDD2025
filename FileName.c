@@ -15,6 +15,11 @@ struct Student {
 
 };
 
+struct Student initializare(int id, int varsta, char* nume, float medie, char initialaTata)
+{
+
+}
+
 
 void main()
 {
