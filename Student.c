@@ -120,6 +120,24 @@ void modificaMedia(struct Student* s, float nouaMedie)
 
 
 	}
+
+	struct Student getStudentDupaNume(struct Student* vector, int nrElemente, const char* nume){
+
+		struct Student s;
+		s.nume = NULL;
+		
+		for (int i = 0; i < nrElemente; i++) {
+			if (strcmp(vector[i].nume, nume) == 0) {
+				s = vector[i];
+				s.nume = (char*)malloc(strlen(vector[i].nume) + 1);
+				strcpy_s(s.nume, strlen(vector[i].nume) + 1, vector[i].nume);
+				return s;
+
+			}
+		}
+
+		return s;
+	}
 		
 	
 
@@ -167,6 +185,15 @@ int main()
 	afisareVector(studentiMedieMare, nrStudentiMedieMare);
 	dezalocare(&studentiMedieMare, &nrStudentiMedieMare);
 
+	struct Student stud = getStudentDupaNume(vectorStudent, nrStudenti, "Ionescu");
+	printf("\n\n Functia GetStudentDupaNume: \n");
+	afisare(stud);
+	if (stud.nume != NULL)
+	{
+		free(stud.nume);
+		stud.nume = NULL;
+	}
+	dezalocare(&vectorStudent, &nrStudenti);
 
 	return 0;
 }
