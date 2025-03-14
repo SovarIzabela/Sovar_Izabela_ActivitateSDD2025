@@ -74,19 +74,45 @@ void dezalocare(struct Farmacie* f) {
 	}
 }
 
-void afisareVector() {
-	//afisarea elementelor din vector apeland functia afisare
+void afisareVector(struct Farmacie* vectorFarmacie, int nrElemente) {
+	
+	for (int i = 0; i < nrElemente; i++) {
+		afisare(vectorFarmacie[i]);
+	}
+
+
 }
 
-struct Farmacie* copiazaPrimeleNElemente() {
-	/*copiem intr-un vector nou pe care il vom returna primele nrElementeCopiate*/
+struct Farmacie* copiazaPrimeleNElemente(struct Farmacie* vectorF, int nrElemente, int nrElementeCopiate) {
+	
 	struct Farmacie*vectorNou=NULL;
-
+	vectorNou = (struct Farmacie*)malloc((sizeof(struct Farmacie) * nrElementeCopiate));
+	for (int i = 0; i < nrElementeCopiate; i++) {
+		 vectorNou[i]= vectorF[i];
+		 vectorNou[i].nume = (char*)malloc((strlen(vectorF[i].nume) + 1));
+		 strcpy_s(vectorNou[i].nume, strlen(vectorF[i].nume) + 1, vectorF[i].nume);
+		 vectorNou[i].preturiMedicamente = (float*)malloc(sizeof(float) * nrElementeCopiate);
+		 for (int i = 0; i < nrElementeCopiate; i++) {
+			 vectorNou[i].preturiMedicamente = vectorF[i].preturiMedicamente;
+		 }
+	}
 	return vectorNou;
 }
 
-void dezalocareV() {
+void dezalocareV(struct Farmacie** vectorF , int* nrElemente) {
 	//dezalocam elementele din vector si vectorul
+	for (int i = 0; i < (*nrElemente); i++) {
+		if((*vectorF)[i].nume!=NULL|| (*vectorF)[i].preturiMedicamente!=NULL)
+		{
+			free((*vectorF)[i].nume);
+			free((*vectorF)[i].preturiMedicamente);
+		}
+		
+	}
+	free(*vectorF);
+	(*vectorF) = NULL;
+	(*nrElemente) = 0;
+
 }
 
 void copiazaAnumiteElemente() {
@@ -122,5 +148,21 @@ void main(){
 	afisare(farmacie);
 
 	dezalocare(&farmacie);
+
+	struct Farmacie* vectorFarmacie;
+	int numarFarmacii = 3;
+	vectorFarmacie = (struct Farmacie*)malloc(sizeof(struct Farmacie) * numarFarmacii);
+	float preturi2[] = { 2.5,55.7,25.5 };
+	float preturi3[] = { 72.5, 13.5, 44.5, 155.5, 180.25 };
+	vectorFarmacie[0] = initializare(1, "Catena", 5, preturi);
+	vectorFarmacie[1] = initializare(2, "DrMax", 3, preturi2);
+	vectorFarmacie[2] = initializare(3, "Beneva", 5, preturi3);
+	printf("-------Vector Farmacii----------------\n\n");
+	afisareVector(vectorFarmacie, numarFarmacii);
+	int numarFarmaciiCopiate = 2;
+	struct Farmacie* vectorCopiat = copiazaPrimeleNElemente( vectorFarmacie, numarFarmacii, numarFarmaciiCopiate);
+	printf("\n\n------------Primele Farmacii-----------------\n\n");
+	afisareVector(vectorCopiat, numarFarmaciiCopiate);
+	dezalocareV(&vectorCopiat, &numarFarmaciiCopiate);
 	return 0;
 }
