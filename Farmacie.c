@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdlib.h>
 #include<malloc.h>
 #include<stdio.h>
@@ -100,7 +100,7 @@ struct Farmacie* copiazaPrimeleNElemente(struct Farmacie* vectorF, int nrElement
 }
 
 void dezalocareV(struct Farmacie** vectorF , int* nrElemente) {
-	//dezalocam elementele din vector si vectorul
+	
 	for (int i = 0; i < (*nrElemente); i++) {
 		if((*vectorF)[i].nume!=NULL|| (*vectorF)[i].preturiMedicamente!=NULL)
 		{
@@ -115,20 +115,107 @@ void dezalocareV(struct Farmacie** vectorF , int* nrElemente) {
 
 }
 
-void copiazaAnumiteElemente() {
-	/*parametrul prag poate fi modificat in functie de 
-	 tipul atributului ales pentru a indeplini o conditie
-	este creat un nou vector cu elementele care indeplinesc acea conditie*/
+void copiazaAnumiteElemente(struct Farmacie* vector, int nrElemente, int pragidCopiat, struct Farmacie** vectorCopiat, int* dimensiune) {
+	(*dimensiune) = 0;
+	for(int i=0;i<nrElemente;i++)
+	
+	{
+		if (vector[i].id<=pragidCopiat) {
+			(*dimensiune)++;
+
+		}
+	}
+
+	if ((*vectorCopiat) != NULL){
+		free(*vectorCopiat);
+	}
+
+	(*vectorCopiat) = (struct Farmacie*)malloc(sizeof(struct Farmacie) * (*dimensiune));
+		
+		
+		int k = 0;
+		for (int i = 0; i < nrElemente; i++){
+			if (vector[i].id <= pragidCopiat) {
+				(*vectorCopiat)[k] = vector[i];
+				(*vectorCopiat)[k].nume = (char*)malloc(strlen(vector[i].nume) + 1);
+				strcpy_s((*vectorCopiat)[k].nume, strlen(vector[i].nume) + 1, vector[i].nume);
+				(*vectorCopiat)[k].preturiMedicamente = (float*)malloc(sizeof(float) * (*dimensiune));
+				for (int j = 0; j < (*dimensiune); j++) {
+					(*vectorCopiat)[k].preturiMedicamente[j] = vector[i].preturiMedicamente[j];
+				}
+				k++;
+			}
+			
+		}
+		
+	
 }
 
-struct Farmacie getPrimulElementConditionat() {
-	/*trebuie cautat elementul care indeplineste o conditie
-	dupa atributul de tip char*. Acesta este returnat.*/
-	
+
+
+
+
+
+
+
+struct Farmacie getPrimulElementConditionat(struct Farmacie* f, int nrElemente, const char* nume) {
+	struct Farmacie copie;
 
 	
-}
+	copie.nume = NULL;
+	copie.preturiMedicamente = NULL;
+	copie.numarMedicamente = 0;
 	
+
+	for (int i = 0; i < nrElemente; i++) {
+		if (strcmp(f[i].nume, nume) == 0) {
+			
+			copie.id = f[i].id;
+			copie.numarMedicamente = f[i].numarMedicamente;
+
+			copie.nume = (char*)malloc(strlen(f[i].nume) + 1);
+			if (copie.nume != NULL) {
+				strcpy_s(copie.nume, strlen(f[i].nume) + 1, f[i].nume);
+			}
+
+		
+			copie.preturiMedicamente = (float*)malloc(sizeof(float) * f[i].numarMedicamente);
+			if (copie.preturiMedicamente != NULL) {
+				for (int j = 0; j < f[i].numarMedicamente; j++) {
+					copie.preturiMedicamente[j] = f[i].preturiMedicamente[j];
+				}
+			}
+
+			return copie; 
+		}
+	}
+
+	
+	return copie;
+}
+
+//struct Farmacie getPrimulElementConditionatDupaId(struct Farmacie* f, int nrElemente, const char idCautat) {
+//	struct Farmacie copie;
+//	copie.nume = NULL;
+//	copie.preturiMedicamente = NULL;
+//	copie.numarMedicamente = 0;
+//	copie.id = -1;
+//
+//	for (int i = 0; i < nrElemente; i++) {
+//		if (f[i].id == idCautat) {
+//			copie = f[i];
+//			copie.nume = (char*)malloc(strlen(f[i].nume) + 1);
+//			strcpy(copie.nume, f[i].nume);
+//			copie.preturiMedicamente = (float*)malloc(sizeof(float) * f[i].numarMedicamente);
+//			for (int j = 0; j < f[i].numarMedicamente; j++) {
+//				copie.preturiMedicamente[j] = f[i].preturiMedicamente[j];
+//			}
+//			return copie;
+//		}
+//
+//		return copie;
+//	}
+//}
 
 
 
@@ -164,5 +251,30 @@ void main(){
 	printf("\n\n------------Primele Farmacii-----------------\n\n");
 	afisareVector(vectorCopiat, numarFarmaciiCopiate);
 	dezalocareV(&vectorCopiat, &numarFarmaciiCopiate);
+	int prag = 2;
+	struct Farmacie* vectorAnumiteElemente = NULL;
+	int numarAnumiteFarmacii = 0;
+	copiazaAnumiteElemente(vectorFarmacie, numarFarmacii, prag, &vectorAnumiteElemente, &numarAnumiteFarmacii);
+	printf("\n\n ----------Anumite farmacii-------------\n\n");
+	afisareVector(vectorAnumiteElemente, numarAnumiteFarmacii);
+	dezalocareV(&vectorAnumiteElemente, &numarAnumiteFarmacii);
+
+	struct Farmacie vectorPrimulElement;
+	int numarPrimulElement = 0;
+	vectorPrimulElement=getPrimulElementConditionat(vectorFarmacie, numarFarmacii, "Beneva");
+	printf("\n\n ----------Primul element-------------\n\n");
+	afisare(vectorPrimulElement);
+	dezalocare(&vectorPrimulElement);
+
+	/*struct Farmacie vectorPrimulElementID;
+	int numarPrimulElementID = 1;
+	vectorPrimulElementID = getPrimulElementConditionatDupaId(vectorFarmacie, numarFarmacii, numarPrimulElementID);
+	printf("\n\n ----------Primul element ID-------------\n\n");
+	afisare(vectorPrimulElementID);
+	dezalocare(&vectorPrimulElementID);*/
+	
+
+
+
 	return 0;
 }

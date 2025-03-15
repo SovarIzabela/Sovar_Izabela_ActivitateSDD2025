@@ -1,5 +1,4 @@
 ﻿  Farmacie.c
-C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(167,2): warning C4098: 'main': 'void' function returning a value
-C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(155,27): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(130,1): warning C4716: 'getPrimulElementConditionat': must return a value
+C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(279,2): warning C4098: 'main': 'void' function returning a value
+C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(242,27): warning C4305: 'initializing': truncation from 'double' to 'float'
   Project1.vcxproj -> C:\Users\Iza\Desktop\sdd_2025\Project1\x64\Debug\Project1.exe
