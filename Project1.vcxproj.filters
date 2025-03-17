@@ -21,5 +21,8 @@
     <ClCompile Include="Farmacie.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Seminar17martie.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿  Farmacie.c
-C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(279,2): warning C4098: 'main': 'void' function returning a value
-C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(242,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+﻿  Seminar17martie.c
+C:\Users\Iza\Desktop\sdd_2025\Project1\Seminar17martie.c(47,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Iza\Desktop\sdd_2025\Project1\Seminar17martie.c(202,9): warning C4477: 'printf' : format string '%.2f' requires an argument of type 'double', but variadic argument 1 has type 'float (__cdecl *)(LD)'
   Project1.vcxproj -> C:\Users\Iza\Desktop\sdd_2025\Project1\x64\Debug\Project1.exe
