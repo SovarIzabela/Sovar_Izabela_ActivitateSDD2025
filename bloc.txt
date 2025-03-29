@@ -1,0 +1,4 @@
+2,10,100,bdTimisoara,1986,G
+3,12,125,bdConstructorilor,1975,G
+10,100,190,bdDecebal,1990,B
+8,75,500,bdMagheru,1955,G

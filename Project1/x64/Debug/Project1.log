@@ -1,4 +1,9 @@
-﻿  Seminar17martie.c
-C:\Users\Iza\Desktop\sdd_2025\Project1\Seminar17martie.c(47,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Iza\Desktop\sdd_2025\Project1\Seminar17martie.c(202,9): warning C4477: 'printf' : format string '%.2f' requires an argument of type 'double', but variadic argument 1 has type 'float (__cdecl *)(LD)'
+﻿  Cladire.c
+C:\Users\Iza\Desktop\sdd_2025\Project1\Cladire.c(80,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Iza\Desktop\sdd_2025\Project1\Cladire.c(131,38): warning C4305: 'function': truncation from 'double' to 'float'
+C:\Users\Iza\Desktop\sdd_2025\Project1\Cladire.c(132,38): warning C4305: 'function': truncation from 'double' to 'float'
+C:\Users\Iza\Desktop\sdd_2025\Project1\Cladire.c(133,38): warning C4305: 'function': truncation from 'double' to 'float'
+C:\Users\Iza\Desktop\sdd_2025\Project1\Cladire.c(123,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Iza\Desktop\sdd_2025\Project1\Cladire.c(124,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Iza\Desktop\sdd_2025\Project1\Cladire.c(125,23): warning C4305: 'initializing': truncation from 'double' to 'float'
   Project1.vcxproj -> C:\Users\Iza\Desktop\sdd_2025\Project1\x64\Debug\Project1.exe
