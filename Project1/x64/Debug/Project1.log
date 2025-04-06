@@ -1,4 +1,5 @@
-﻿  Student.c
-C:\Users\Iza\Desktop\sdd_2025\Project1\Student.c(181,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Iza\Desktop\sdd_2025\Project1\Student.c(213,17): warning C4101: 's': unreferenced local variable
+﻿  Farmacie.c
+C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(301,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(381,2): warning C4098: 'main': 'void' function returning a value
+C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(340,27): warning C4305: 'initializing': truncation from 'double' to 'float'
   Project1.vcxproj -> C:\Users\Iza\Desktop\sdd_2025\Project1\x64\Debug\Project1.exe
