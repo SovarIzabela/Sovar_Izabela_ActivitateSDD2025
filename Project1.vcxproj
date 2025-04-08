@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Cladire.c" />
     <ClCompile Include="Farmacie.c" />
+    <ClCompile Include="ListaSimpla.c" />
     <ClCompile Include="Seminar17martie.c" />
     <ClCompile Include="Student.c" />
   </ItemGroup>

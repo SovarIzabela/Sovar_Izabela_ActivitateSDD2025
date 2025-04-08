@@ -1,5 +1,3 @@
-﻿  Farmacie.c
-C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(301,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(381,2): warning C4098: 'main': 'void' function returning a value
-C:\Users\Iza\Desktop\sdd_2025\Project1\Farmacie.c(340,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+﻿  ListaSimpla.c
+C:\Users\Iza\Desktop\sdd_2025\Project1\ListaSimpla.c(44,14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Project1.vcxproj -> C:\Users\Iza\Desktop\sdd_2025\Project1\x64\Debug\Project1.exe

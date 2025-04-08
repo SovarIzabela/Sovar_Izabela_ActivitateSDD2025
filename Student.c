@@ -12,6 +12,9 @@
 //	char initialaTata;
 //};
 //
+//
+//
+//
 //struct Student initializare(int id, int varsta,const char* nume, float medie, char initialaTata)
 //{
 //	struct Student s;
@@ -41,13 +44,13 @@
 //	}
 //}
 //
-//void dezalocare(struct Student* s) {
-//	if (s->nume != NULL)
-//	{
-//		free(s->nume);
-//		s->nume = NULL;
-//	}
-//}
+////void dezalocare(struct Student* s) {
+////	if (s->nume != NULL)
+////	{
+////		free(s->nume);
+////		s->nume = NULL;
+////	}
+////}
 //
 //	void afisareVector(struct Student* vector, int nrElemente){
 //
@@ -211,7 +214,7 @@
 //{
 //
 //	struct Student s;
-//	/*s = initializare(1, 20, "Ionescu", 7.5, 'N');*/
+//	s = initializare(1, 20, "Ionescu", 7.5, 'N');
 //
 //	afisare(s);
 //

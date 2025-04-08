@@ -1,5 +1,10 @@
-1,25,Ionut,9.5,A
-2,22,Ana,8.0,I
-3,20,Ioana,5.75,S
-4,30,Valy,8.25,L
-5,25,Iza,10.00,N
+1,20,Andrei Popescu,8.75,P
+2,21,Ioana Georgescu,9.10,G
+3,22,Mihai Ionescu,7.65,I
+4,19,Elena Marinescu,9.50,M
+5,23,Vlad Dobre,6.80,D
+6,20,Alina Stanescu,8.25,S
+7,21,Cristian Enache,7.90,E
+8,22,Laura Dumitrescu,9.35,D
+9,20,Robert Neagu,6.55,N
+10,19,Teodora Radu,8.95,R
