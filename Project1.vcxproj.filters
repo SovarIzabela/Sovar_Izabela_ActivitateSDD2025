@@ -39,5 +39,8 @@
     <ClCompile Include="ListaSimplaTelefon.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ListaSimplaLaptop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

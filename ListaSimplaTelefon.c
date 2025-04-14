@@ -153,8 +153,20 @@ void dezalocareListaTelefoane(Nod** nod) {
 	}
 }
 
-float calculeazaPretMediu(/*lista de masini*/) {
+float calculeazaPretMediu(Nod* cap) {
 	
+	float suma = 0;
+	int contor = 0;
+	while (cap) {
+		suma = suma + cap->info.pret;
+		contor++;
+		cap = cap->next;
+	}
+	if(contor>0)
+	{
+		 return suma = suma / contor;
+	}
+
 	return 0;
 }
 
@@ -163,9 +175,20 @@ void stergeTelefonDinSeria(/*lista masini*/ char serieCautata) {
 	
 }
 
-float calculeazaPretulTelefonuluiUnuiProducator(/*lista masini*/ const char* numeProducator) {
+float calculeazaPretulTelefonuluiUnuiProducator(Nod*cap, const char* numeProducator) {
 	
-	return 0;
+	float suma = 0;
+	while(cap)
+	{
+		if (strcmp(cap->info.firmaProducatoare,numeProducator) == 0) {
+			suma = suma + cap->info.pret;
+			
+		}
+
+		cap = cap->next;
+	}
+	
+	return suma;
 }
 
 
@@ -174,8 +197,8 @@ void main(){
 
 	Nod* lista = citireListaTelefonDinFisier("telefon.txt");
 	afisareListaTelefoane(lista);
+	printf("Pretul mediu din lista este:%.2f\nn", calculeazaPretMediu(lista));
+	printf("Pretul unui telefon al firmei x este :%.2f\n", calculeazaPretulTelefonuluiUnuiProducator(lista,"Samsung"));
 	dezalocareListaTelefoane(&lista);
-
-
 	return 0;
 }

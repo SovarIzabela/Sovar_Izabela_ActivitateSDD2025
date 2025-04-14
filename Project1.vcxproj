@@ -131,6 +131,7 @@
     <ClCompile Include="Farmacie.c" />
     <ClCompile Include="ListaSimplaCladire.c" />
     <ClCompile Include="ListaSimplaFarmacie.c" />
+    <ClCompile Include="ListaSimplaLaptop.c" />
     <ClCompile Include="ListaSimplaStudent.c" />
     <ClCompile Include="ListaSimplaTelefon.c" />
     <ClCompile Include="Seminar17martie.c" />
