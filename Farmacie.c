@@ -194,45 +194,45 @@
 //	return copie;
 //}
 //
-////struct Farmacie getPrimulElementConditionatDupaId(struct Farmacie* f, int nrElemente, const char idCautat) {
-////	struct Farmacie copie;
-////	copie.nume = NULL;
-////	copie.preturiMedicamente = NULL;
-////	copie.numarMedicamente = 0;
-////	copie.id = -1;
-////
-////	for (int i = 0; i < nrElemente; i++) {
-////		if (f[i].id == idCautat) {
-////			copie = f[i];
-////			copie.nume = (char*)malloc(strlen(f[i].nume) + 1);
-////			strcpy(copie.nume, f[i].nume);
-////			copie.preturiMedicamente = (float*)malloc(sizeof(float) * f[i].numarMedicamente);
-////			for (int j = 0; j < f[i].numarMedicamente; j++) {
-////				copie.preturiMedicamente[j] = f[i].preturiMedicamente[j];
-////			}
-////			return copie;
-////		}
-////
-////		return copie;
-////	}
-////}
+//struct Farmacie getPrimulElementConditionatDupaId(struct Farmacie* f, int nrElemente, const char idCautat) {
+//	struct Farmacie copie;
+//	copie.nume = NULL;
+//	copie.preturiMedicamente = NULL;
+//	copie.numarMedicamente = 0;
+//	copie.id = -1;
+//
+//	for (int i = 0; i < nrElemente; i++) {
+//		if (f[i].id == idCautat) {
+//			copie = f[i];
+//			copie.nume = (char*)malloc(strlen(f[i].nume) + 1);
+//			strcpy(copie.nume, f[i].nume);
+//			copie.preturiMedicamente = (float*)malloc(sizeof(float) * f[i].numarMedicamente);
+//			for (int j = 0; j < f[i].numarMedicamente; j++) {
+//				copie.preturiMedicamente[j] = f[i].preturiMedicamente[j];
+//			}
+//			return copie;
+//		}
+//
+//		return copie;
+//	}
+//}
 //
 //
-////void adaugaFarmacieInVector(struct Farmacie** farmacie,int*nrFarmacii, struct Farmacie farmacieNoua ) {
-////
-////	struct Farmacie* aux = (struct Farmacie*)malloc(sizeof(struct Farmacie) * (*nrFarmacii));
-////
-////	for (int i = 0; i < (*nrFarmacii); i++) {
-////		aux[i] = (*farmacie)[i];
-////	}
-////
-////	aux[(*nrFarmacii)] = farmacieNoua;
-////	free(*farmacie);
-////	(*farmacie) = aux;
-////	
-////	(*nrFarmacii)++;
-////
-////}
+//void adaugaFarmacieInVector(struct Farmacie** farmacie,int*nrFarmacii, struct Farmacie farmacieNoua ) {
+//
+//	struct Farmacie* aux = (struct Farmacie*)malloc(sizeof(struct Farmacie) * (*nrFarmacii));
+//
+//	for (int i = 0; i < (*nrFarmacii); i++) {
+//		aux[i] = (*farmacie)[i];
+//	}
+//
+//	aux[(*nrFarmacii)] = farmacieNoua;
+//	free(*farmacie);
+//	(*farmacie) = aux;
+//	
+//	(*nrFarmacii)++;
+//
+//}
 //
 //void adaugaFarmacieInVector(struct Farmacie** farmacie, int* nrFarmacii, struct Farmacie farmacieNoua) {
 //

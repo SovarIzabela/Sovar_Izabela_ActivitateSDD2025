@@ -1,0 +1,20 @@
+1,iPhone 13,Apple,4499.99,2022,1
+2,Galaxy S22,Samsung,3899.50,2022,1
+3,Redmi Note 12,Xiaomi,1299.00,2023,1
+4,Nokia 3310,Nokia,199.99,2000,0
+5,P50 Pro,Huawei,3999.00,2021,1
+6,Pixel 6,Google,3299.00,2022,1
+7,Galaxy A54,Samsung,1899.99,2023,1
+8,iPhone SE,Apple,2599.99,2022,0
+9,Xperia 5,SONY,3399.00,2023,1
+10,Moto G100,Motorola,1799.99,2021,1
+11,Realme 9 Pro,Realme,1499.50,2022,1
+12,Honor 70,Honor,2099.90,2023,1
+13,OnePlus 10T,OnePlus,3099.00,2022,1
+14,Galaxy Z Flip 4,Samsung,5999.99,2023,1
+15,Pixel 7a,Google,2799.99,2023,1
+16,iPhone 14,Apple,5399.99,2023,1
+17,Nokia X10,Nokia,1299.00,2022,1
+18,Motorola Edge,Motorola,2399.00,2022,1
+19,OnePlus Nord,OnePlus,1899.00,2021,1
+20,Galaxy M13,Samsung,999.99,2022,1

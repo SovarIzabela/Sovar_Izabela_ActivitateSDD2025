@@ -27,7 +27,16 @@
     <ClCompile Include="Cladire.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ListaSimpla.c">
+    <ClCompile Include="ListaSimplaStudent.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaSimplaCladire.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaSimplaFarmacie.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaSimplaTelefon.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
