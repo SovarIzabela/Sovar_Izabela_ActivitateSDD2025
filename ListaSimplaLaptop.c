@@ -1,94 +1,233 @@
-//#define _CRT_SECURE_NO_WARNINGS
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
-//
-////trebuie sa folositi fisierul masini.txt
-////sau va creati un alt fisier cu alte date
-//
-//struct StructuraMasina {
-//	int id;
-//	int nrUsi;
-//	float pret;
-//	char* model;
-//	char* numeSofer;
-//	unsigned char serie;
-//};
-//typedef struct StructuraMasina Masina;
-//
-////creare structura pentru un nod dintr-o lista simplu inlantuita
-//
-//Masina citireMasinaDinFisier(FILE* file) {
-//	char buffer[100];
-//	char sep[3] = ",\n";
-//	fgets(buffer, 100, file);
-//	char* aux;
-//	Masina m1;
-//	aux = strtok(buffer, sep);
-//	m1.id = atoi(aux);
-//	m1.nrUsi = atoi(strtok(NULL, sep));
-//	m1.pret= atof(strtok(NULL, sep));
-//	aux = strtok(NULL, sep);
-//	m1.model = malloc(strlen(aux) + 1);
-//	strcpy_s(m1.model, strlen(aux) + 1, aux);
-//
-//	aux = strtok(NULL, sep);
-//	m1.numeSofer = malloc(strlen(aux) + 1);
-//	strcpy_s(m1.numeSofer, strlen(aux) + 1, aux);
-//
-//	m1.serie = *strtok(NULL, sep);
-//	return m1;
-//}
-//
-//void afisareMasina(Masina masina) {
-//	printf("Id: %d\n", masina.id);
-//	printf("Nr. usi : %d\n", masina.nrUsi);
-//	printf("Pret: %.2f\n", masina.pret);
-//	printf("Model: %s\n", masina.model);
-//	printf("Nume sofer: %s\n", masina.numeSofer);
-//	printf("Serie: %c\n\n", masina.serie);
-//}
-//
-//void afisareListaMasini(/*lista de masini*/) {
-//	//afiseaza toate elemente de tip masina din lista simplu inlantuita
-//	//prin apelarea functiei afisareMasina()
-//}
-//
-//void adaugaMasinaInLista(/*lista de masini*/ Masina masinaNoua) {
-//	//adauga la final in lista primita o noua masina pe care o primim ca parametru
-//}
-//
-//void adaugaLaInceputInLista(/*lista de masini*/ Masina masinaNoua) {
-//	//adauga la inceputul listei o noua masina pe care o primim ca parametru
-//}
-//
-//void* citireListaMasiniDinFisier(const char* numeFisier) {
-//	//functia primeste numele fisierului, il deschide si citeste toate masinile din fisier
-//	//prin apelul repetat al functiei citireMasinaDinFisier()
-//	//ATENTIE - la final inchidem fisierul/stream-ul
-//}
-//
-//void dezalocareListaMasini(/*lista de masini*/) {
-//	//sunt dezalocate toate masinile si lista de elemente
-//}
-//
-//float calculeazaPretMediu(/*lista de masini*/) {
-//	//calculeaza pretul mediu al masinilor din lista.
-//	return 0;
-//}
-//
-//void stergeMasiniDinSeria(/*lista masini*/ char serieCautata) {
-//	//sterge toate masinile din lista care au seria primita ca parametru.
-//	//tratati situatia ca masina se afla si pe prima pozitie, si pe ultima pozitie
-//}
-//
-//float calculeazaPretulMasinilorUnuiSofer(/*lista masini*/ const char* numeSofer) {
-//	//calculeaza pretul tuturor masinilor unui sofer.
-//	return 0;
-//}
-//
-//int main() {
-//
-//
-//	return 0;
-//}
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include<stdbool.h>
+
+
+
+struct Laptop {
+
+	int id;
+	char* marca;
+	char* model;
+	float pret;
+	int anFabricatie;
+	bool esteGaming;
+	
+};
+typedef struct Laptop Laptop;
+
+struct Nod {
+	Laptop info;
+	struct Nod* next;
+
+
+};
+ 
+typedef struct Nod Nod;
+
+Laptop citireLaptopDinFisier(FILE* file) {
+
+	Laptop l;
+	l.marca = NULL;
+	l.model = NULL;
+	
+	char buffer[100];
+	char* separator = ",;\n";
+	fgets(buffer, 100, file);
+
+	char* token = strtok(buffer, separator);
+	if (token == NULL) return l;
+	l.id = atoi(token);
+
+	//char* marca;
+	token = strtok(NULL, separator);
+	if (token == NULL) return l;
+	l.marca = (char*)malloc(strlen(token)+1);
+	strcpy(l.marca, token);
+
+	//char* model;
+	token = strtok(NULL, separator);
+	if (token == NULL) return l;
+	l.model = (char*)malloc(strlen(token)+1);
+	strcpy(l.model, token);
+
+	/*float pret;*/
+
+	token = strtok(NULL, separator);
+	if (token == NULL) return l;
+	l.pret = atof(token);
+
+	/*int anFabricatie;*/
+
+	token = strtok(NULL, separator);
+	if (token == NULL) return l;
+	l.anFabricatie = atoi(token);
+
+	/*bool esteGaming;*/
+	token = strtok(NULL, separator);
+	if (token == NULL) return l;
+	l.esteGaming = atoi(token) != 0;
+
+	
+	return l;
+	
+}
+
+void afisareLaptop(Laptop laptop) {
+
+	printf("ID: %d\n", laptop.id);
+	printf("Marca: %s\n", laptop.marca);
+	printf("Model: %s\n", laptop.model);
+	printf("Pret: %.2f\n", laptop.pret);
+	printf("An fabricarie: %d\n", laptop.anFabricatie);
+	printf("Este Gamming: %d\n", laptop.esteGaming);
+	printf("\n");
+
+}
+
+
+
+void afisareListaLaptop(Nod* cap) {
+
+	while (cap) {
+
+		afisareLaptop(cap->info);
+		cap = cap->next;
+	}
+}
+
+void adaugaLaptopInListasfarsit(Nod **cap, Laptop LaptopNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = LaptopNou;
+	nou->next = NULL;
+	if (*cap) {
+		Nod* p = (*cap);
+		while (p->next) {
+			p = p->next;
+		}
+		p->next = nou;
+
+	}
+	else
+	{
+		(*cap) = nou;
+		
+	}
+
+
+
+}
+
+
+void adaugaLaInceputInLista(Nod** cap, Laptop LaptopNou) {
+	
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = LaptopNou;
+	nou->next = *cap;
+	(*cap) = nou;
+
+
+
+}
+
+Nod* citireListaLaptopDinFisier(const char* numeFisier) {
+
+	Nod* cap = NULL;
+	FILE* file = fopen(numeFisier, "r");
+	if (file) {
+		while (!feof(file)) {
+			Laptop laptop = citireLaptopDinFisier(file);
+			if (laptop.marca != NULL && laptop.model != NULL)
+			{
+				adaugaLaptopInListasfarsit(&cap, laptop);
+			}
+			
+		}
+
+
+		fclose(file);
+		return cap;
+
+
+	}
+}
+void dezalocareNod(Nod* nod) {
+
+	if (nod != NULL) {
+		if (nod->info.marca != NULL) {
+			free(nod->info.marca);
+		}
+		if (nod->info.model != NULL) {
+			free(nod->info.model);
+		}
+
+		free(nod);
+	}
+
+
+
+}
+
+void dezalocareListaLaptop(Nod**cap) {
+
+	
+	while (*cap!=NULL) {
+		Nod* aux = (*cap);
+		*cap = (*cap)->next;
+		dezalocareNod(aux);
+	}
+
+	
+}
+
+float calculeazaPretMediu(Nod* nod) {
+	
+	float suma = 0;
+	int contor = 0;
+
+	while (nod) {
+		suma = suma + nod->info.pret;
+		contor++;
+		nod = nod->next;
+	}
+	if (contor > 0) {
+		return  suma / contor;
+	}
+
+	return 0;
+}
+
+void stergeLaptopDinSeria(/*lista masini*/ char serieCautata) {
+	//sterge toate masinile din lista care au seria primita ca parametru.
+	//tratati situatia ca masina se afla si pe prima pozitie, si pe ultima pozitie
+}
+
+float calculeazaPretulLaptopMarca(Nod*cap, const char* marca) {
+	
+	float suma = 0;
+	while(cap)
+	{
+		if (strcmp(cap->info.marca, marca) == 0) {
+
+			suma = suma + cap->info.pret;
+		}
+
+		cap = cap->next;
+	}
+
+
+	return suma;
+}
+
+int main() {
+
+
+	Nod* nou = citireListaLaptopDinFisier("laptop.txt");
+	afisareListaLaptop(nou);
+	dezalocareListaLaptop(&nou);
+
+	return 0;
+}

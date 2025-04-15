@@ -1,0 +1,10 @@
+1;Dell;Inspiron 15;3499.99;2021;0
+2;Asus;ROG Zephyrus G14;6899.50;2022;1
+3;Apple;MacBook Air M1;5299.00;2020;0
+4;Lenovo;Legion 5 Pro;7299.99;2023;1
+5;HP;Pavilion 14;2899.00;2022;0
+6;Acer;Predator Helios 300;6199.95;2021;1
+7;MSI;GF63 Thin;4599.49;2022;1
+8;Huawei;MateBook D14;3199.90;2023;0
+9;Samsung;Galaxy Book2 Pro;5799.00;2023;0
+10;Razer;Blade 15;8499.99;2022;1
