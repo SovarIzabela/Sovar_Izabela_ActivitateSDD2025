@@ -200,9 +200,31 @@ float calculeazaPretMediu(Nod* nod) {
 	return 0;
 }
 
-void stergeLaptopDinSeria(/*lista masini*/ char serieCautata) {
-	//sterge toate masinile din lista care au seria primita ca parametru.
-	//tratati situatia ca masina se afla si pe prima pozitie, si pe ultima pozitie
+void stergeLaptopDinMarca(Nod**cap, const char* marcaCautata) {
+	while ((*cap) && strcmp((*cap)->info.marca, marcaCautata) == 0) {
+		Nod* p = (*cap);
+		(*cap) = (*cap)->next;
+		dezalocareNod(p);
+	}
+
+	Nod* aux = (*cap);
+
+	while (aux &&aux->next) {
+		if (strcmp(aux->next->info.marca, marcaCautata) == 0) {
+			Nod* p = aux->next;
+			aux->next = p->next;
+			dezalocareNod(p);
+		}
+		else {
+			aux = aux->next;
+		}
+
+	}
+
+	
+
+
+	
 }
 
 float calculeazaPretulLaptopMarca(Nod*cap, const char* marca) {
@@ -227,7 +249,14 @@ int main() {
 
 	Nod* nou = citireListaLaptopDinFisier("laptop.txt");
 	afisareListaLaptop(nou);
+
+	stergeLaptopDinMarca(&nou, "Dell");
+	printf("-----STERGERE------\n");
+	afisareListaLaptop(nou);
+
 	dezalocareListaLaptop(&nou);
+
+
 
 	return 0;
 }

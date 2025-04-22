@@ -8,3 +8,4 @@
 8;Huawei;MateBook D14;3199.90;2023;0
 9;Samsung;Galaxy Book2 Pro;5799.00;2023;0
 10;Razer;Blade 15;8499.99;2022;1
+11;Dell;Inspiron 15;3499.99;2021;0
