@@ -1,4 +1,7 @@
-﻿  ListaSimplaLaptop.c
-C:\Users\Iza\Desktop\sdd_2025\Project1\ListaSimplaLaptop.c(60,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Iza\Desktop\sdd_2025\Project1\ListaSimplaLaptop.c(156,1): warning C4715: 'citireListaLaptopDinFisier': not all control paths return a value
+﻿  ListaDublaFarmacie.c
+C:\Users\Iza\Desktop\sdd_2025\Project1\ListaDublaFarmacie.c(75,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Iza\Desktop\sdd_2025\Project1\ListaDublaFarmacie.c(87,9): warning C4477: 'printf' : format string '%.2f' requires an argument of type 'double', but variadic argument 1 has type 'float *'
+C:\Users\Iza\Desktop\sdd_2025\Project1\ListaDublaFarmacie.c(93,11): warning C4101: 'f': unreferenced local variable
+C:\Users\Iza\Desktop\sdd_2025\Project1\ListaDublaFarmacie.c(105,11): warning C4101: 'f': unreferenced local variable
+C:\Users\Iza\Desktop\sdd_2025\Project1\ListaDublaFarmacie.c(169,1): warning C4716: 'citireLDFarmacieDinFisier': must return a value
   Project1.vcxproj -> C:\Users\Iza\Desktop\sdd_2025\Project1\x64\Debug\Project1.exe

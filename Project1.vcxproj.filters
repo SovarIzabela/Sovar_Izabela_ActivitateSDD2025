@@ -42,5 +42,20 @@
     <ClCompile Include="ListaSimplaLaptop.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ListaDublaCladire.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaDublaFarmacie.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaDublaStudent.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaDublaLaptop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileName.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
