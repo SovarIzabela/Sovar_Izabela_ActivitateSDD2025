@@ -22,11 +22,12 @@ struct Nod {
 };
 typedef struct Nod Nod;
 
-struct ListDubla {
+struct ListaDubla {
 	Nod* first;
 	Nod* last;
 	int nrNoduri;
 };
+typedef struct ListaDubla ListaDubla;
 
 Student citireStudentDinFisier(FILE* file) {
 	Student s = { 0 };
@@ -180,44 +181,260 @@ void dezalocareVector(Student** s, int* nrStudenti) {
 	
 }
 
+ int numaraStudentiPesteVarsta(Student* vector, int nrStudenti, int varstaLimita) {
 
-void afisareListaStudent(/*lista dubla de masini*/) {
-	//afiseaza toate elemente de tip masina din lista dublu inlantuita
-	//prin apelarea functiei afisareMasina()
+	 int contor = 0;
+	 for (int i = 0; i < nrStudenti; i++) {
+		 if (vector[i].varsta > varstaLimita) {
+			 
+			 contor++;
+		 }
+	 }
+
+	 return contor;
+ }
+
+ Student* vectorStudentiPesteVarsta(Student* vector, int nrStudenti, int varstaLimita, int* nrGasiti) {
+	
+	 *nrGasiti = 0;
+	 int dimensiune = 0;
+	 for (int i = 0; i < nrStudenti; i++) {
+		 if (vector[i].varsta > varstaLimita) {
+
+				dimensiune++;
+		 }
+	 }
+
+	 *nrGasiti = dimensiune;
+	 Student* vectornou = (Student*)malloc(sizeof(Student) * (*nrGasiti));
+
+
+	 int k = 0;
+	 for (int i = 0; i < nrStudenti; i++) {
+		 if (vector[i].varsta > varstaLimita) {
+			 vectornou[k].id = vector[i].id;
+			 vectornou[k].medie = vector[i].medie;
+			 vectornou[k].initialaTata = vector[i].initialaTata;
+			 vectornou[k].medie = vector[i].medie;
+			 vectornou[k].nume = (char*)malloc(strlen(vector[i].nume) + 1);
+			 strcpy(vectornou[k].nume, vector[i].nume);
+			 vectornou[k].varsta = vector[i].varsta;
+			 k++;
+		 }
+	 }
+
+	 return vectornou;
+
+ }
+
+  void adaugaStudentInVector(Student * *student, int* nrStudenti, Student studentNou) {
+	  Student* vectornou = (Student*)malloc(sizeof(Student) * (*nrStudenti+1));
+	  int k = 0;
+	  for (int i = 0; i < (*nrStudenti); i++) {
+		  vectornou[k] = (*student)[i];
+		  vectornou[k].nume = (char*)malloc(strlen((*student)[i].nume) + 1);
+		  strcpy(vectornou[k].nume, (*student)[i].nume);
+		  k++;
+	  }
+		
+	  vectornou[(*nrStudenti)] = studentNou;
+	  vectornou[*nrStudenti].nume = malloc(strlen(studentNou.nume) + 1);
+	  strcpy(vectornou[*nrStudenti].nume, studentNou.nume);
+
+	  (*nrStudenti)++;
+	  *student = vectornou;
+		
+	  
+  }
+
+
+void afisareListaStudentInceput(ListaDubla lista) {
+	
+	
+	Nod* p = lista.first;
+	while (p) {
+		afisareStudent(p->info);
+		p = p->next;
+	}
+
+
+
 }
 
-void adaugaStudentInLista(/*lista dubla de masini*/ Student masinaNoua) {
-	//adauga la final in lista primita o noua masina pe care o primim ca parametru
+void afisareListaStudentSfarsit(ListaDubla lista) {
+	Nod* p = lista.last;
+	while (p) {
+		afisareStudent(p->info);
+		p = p->prev;
+	}
+
+
 }
 
-void adaugaLaInceputInLista(/*lista dubla de masini*/ Student masinaNoua) {
-	//adauga la inceputul listei dublu inlantuite o noua masina pe care o primim ca parametru
+void adaugaStudentInListaFinal(ListaDubla* lista, Student studentNou) {
+	
+
+	Nod* Nou = (Nod*)malloc(sizeof(Nod));
+	Nou->info = studentNou;
+	Nou->next = NULL;
+	Nou->prev = lista->last;
+
+	if(lista->last!=NULL)
+	{
+		lista->last->next = Nou;
+	}
+	else {
+		lista->first = Nou;
+	}
+	lista->last = Nou;
+	lista->nrNoduri++;
+
+
+
 }
 
-void* citireLDStudentDinFisier(const char* numeFisier) {
-	//functia primeste numele fisierului, il deschide si citeste toate masinile din fisier
-	//prin apelul repetat al functiei citireMasinaDinFisier()
-	//ATENTIE - la final inchidem fisierul/stream-ul
+void adaugaLaInceputInLista(ListaDubla*lista, Student studentnou) {
+	Nod* Nou = (Nod*)malloc(sizeof(Nod));
+	Nou->info = studentnou;
+	Nou->next = lista->first;
+	Nou->prev = NULL;
+
+	if (lista->first != NULL) {
+		lista->first->prev = Nou;
+	}
+	else {
+		lista->last = Nou;
+		
+	}
+
+	lista->first = Nou;
+	lista->nrNoduri++;
+
+
 }
 
-void dezalocareLDStudent(/*lista dubla de masini*/) {
-	//sunt dezalocate toate masinile si lista dublu inlantuita de elemente
+ListaDubla citireLDStudentDinFisier(const char* numeFisier) {
+	
+	FILE* f = fopen(numeFisier, "r");
+	ListaDubla lista;
+	lista.first = NULL;
+	lista.last = NULL;
+	lista.nrNoduri = 0;
+
+	while (!feof(f)) {
+		Student s = citireStudentDinFisier(f);
+		adaugaLaInceputInLista(&lista, s);
+	}
+
+	fclose(f);
+	return lista;
 }
 
-float calculeazaPretMediu(/*lista de masini*/) {
-	//calculeaza pretul mediu al masinilor din lista.
-	return 0;
+void dezalocareLDStudent(ListaDubla* lista) {
+	
+	Nod* p = lista->first;
+	while (p) {
+		Nod* next = p->next;
+		p = p->next;
+		
+		if (p->info.nume != NULL) {
+			free(p->info.nume);
+		}
+		free(p);
+		p = next;
+	}
+
+	lista->first = NULL;
+	lista->last = NULL;
+	lista->nrNoduri = 0;
+
 }
 
-void stergeStudentDupaID(/*lista masini*/ int id) {
-	//sterge masina cu id-ul primit.
-	//tratati situatia ca masina se afla si pe prima pozitie, si pe ultima pozitie
+float calculeazaPretMediu(ListaDubla lista) {
+	//calculeaza nota medie a tuturor studentilor din lista
+	float suma = 0;
+	Nod* p = lista.first;
+	while (p) {
+
+		suma = suma + p->info.medie;
+		
+		p = p->next;
+	}
+	float media = suma / lista.nrNoduri;
+
+	return media;
 }
 
-char* getNumeSoferMasinaScumpa(/*lista dublu inlantuita*/) {
-	//cauta masina cea mai scumpa si 
-	//returneaza numele soferului acestei maasini.
-	return NULL;
+void stergeStudentDupaID(ListaDubla* lista, int id) {
+	//sterge studentul cu id-ul primit.
+	//tratati situatia ca studentul se afla si pe prima pozitie, si pe ultima pozitie
+	Nod* p = lista->first;
+	while (p&&p->info.id!=id) {
+		
+		p = p->next;
+
+	}
+
+	if (p == NULL) {
+		return;
+	}
+	
+	if (p == lista->first) {
+		lista->first = p->next;
+		if (p->next) {
+			p->next->prev = NULL;
+		}
+		else {
+			lista->last = NULL;
+		}
+	}
+	if(p->next&&p->prev)
+	{
+		p->prev->next = p->next;
+		p->next->prev = p->prev;
+	}
+	
+	if (p->next == NULL) {
+		p->prev->next = NULL;
+	}
+
+
+	if (p->info.nume != NULL) {
+		free(p->info.nume);
+	}
+
+	free(p);
+
+	lista->nrNoduri--;
+}
+
+char* getNumeStudentMedieMare(ListaDubla lista) {
+	//cauta media cea mai mare
+	//returneaza numele studentului
+
+	if(lista.first)
+	{
+		Nod* p = lista.first;
+		Nod* maxim = lista.first->next;
+		while(p)
+		{
+			if (p->info.medie > maxim->info.medie) {
+				maxim = p;
+			}
+			p = p->next;
+		}
+
+		char* nume = (char*)malloc(strlen(maxim->info.nume) + 1);
+		strcpy(nume, maxim->info.nume);
+		return nume;
+	}
+	else {
+		return NULL;
+	}
+	
+
+
+	
 }
 
 int main() {
@@ -263,6 +480,28 @@ int main() {
 
 	Student rezultat = getPrimulElementConditionat(vector, nrStudenti, "Popescu");
 	afisareStudent(rezultat);
+
+	printf("Numarul de studentii cu varsta peste 21 sunt: %d", numaraStudentiPesteVarsta(vector, nrStudenti, 21));
+	int nrGasiti = 0;
+	printf("Vector studenti peste 20 ani\n");
+	Student* vector2 = vectorStudentiPesteVarsta(vector, nrStudenti, 20, &nrGasiti);
+	afisareVector(vector2, nrGasiti);
+
+
+
+	Student studentNou = initalizare(1, 20, "Izabela", 9.5, 'I');
+
+	adaugaStudentInVector(&vector, &nrStudenti, studentNou);
+
+	afisareVector(vector, nrStudenti);
+	
+	ListaDubla lista = citireLDStudentDinFisier("student.txt");
+	afisareListaStudentSfarsit(lista);
+
+
+	printf("---Sterge din Lista------\n");
+	stergeStudentDupaID(&lista, 10);
+	afisareListaStudentInceput(lista);
 
 	dezalocareVector(&anumitiStudenti, &nrAnumitiStudenti);
 	dezalocareVector(&vector, &nrStudenti);
