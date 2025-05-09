@@ -1,0 +1,10 @@
+1,Rex,Câine,5,12.3,M
+2,Miti,Pisică,3,4.2,F
+3,Azor,Câine,7,18.1,M
+4,Fluffy,Şoarece,1,0.2,F
+5,Leo,Leu,10,190.5,M
+6,Luna,Pisică,2,3.8,F
+7,Max,Câine,4,15.0,M
+8,Bella,Papagal,8,0.5,F
+9,Rocky,Hamster,1,0.1,M
+10,Daisy,Vaca,6,300.0,F
