@@ -110,7 +110,7 @@
 //
 //	Nod* nou = (Nod*)malloc(sizeof(Nod));
 //	nou->info = telefonNou;
-//	nou->next = (*cap)
+//	nou->next = (*cap);
 //	nou = (*cap);
 //
 //}

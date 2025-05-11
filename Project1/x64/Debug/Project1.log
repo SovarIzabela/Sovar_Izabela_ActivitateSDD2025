@@ -1,11 +1,3 @@
-﻿  task.c
-C:\Users\Iza\Desktop\sdd_2025\Project1\task.c(27,32): warning C4047: '=': 'char' differs in levels of indirection from 'char [2]'
-C:\Users\Iza\Desktop\sdd_2025\Project1\task.c(45,32): warning C4047: '=': 'char' differs in levels of indirection from 'char [2]'
-C:\Users\Iza\Desktop\sdd_2025\Project1\task.c(264,40): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char'
-C:\Users\Iza\Desktop\sdd_2025\Project1\task.c(264,40): warning C4024: 'atof': different types for formal and actual parameter 1
-C:\Users\Iza\Desktop\sdd_2025\Project1\task.c(282,26): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Iza\Desktop\sdd_2025\Project1\task.c(282,31): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Iza\Desktop\sdd_2025\Project1\task.c(288,21): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Iza\Desktop\sdd_2025\Project1\task.c(288,26): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Iza\Desktop\sdd_2025\Project1\task.c(215,1): warning C4716: 'getPrimulElementConditionat': must return a value
+﻿  Seminar_10.05.c
+C:\Users\Iza\Desktop\sdd_2025\Project1\Seminar_10.05.c(36,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Project1.vcxproj -> C:\Users\Iza\Desktop\sdd_2025\Project1\x64\Debug\Project1.exe

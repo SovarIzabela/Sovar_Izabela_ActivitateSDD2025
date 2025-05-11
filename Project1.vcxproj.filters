@@ -72,5 +72,8 @@
     <ClCompile Include="task.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Seminar_10.05.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

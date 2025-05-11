@@ -44,13 +44,13 @@
 //	}
 //}
 //
-////void dezalocare(struct Student* s) {
-////	if (s->nume != NULL)
-////	{
-////		free(s->nume);
-////		s->nume = NULL;
-////	}
-////}
+//void dezalocare(struct Student* s) {
+//	if (s->nume != NULL)
+//	{
+//		free(s->nume);
+//		s->nume = NULL;
+//	}
+//}
 //
 //	void afisareVector(struct Student* vector, int nrElemente){
 //

@@ -144,6 +144,7 @@
     <ClCompile Include="ListaSimplaStudent.c" />
     <ClCompile Include="ListaSimplaTelefon.c" />
     <ClCompile Include="Seminar17martie.c" />
+    <ClCompile Include="Seminar_10.05.c" />
     <ClCompile Include="Student.c" />
     <ClCompile Include="task.c" />
   </ItemGroup>
