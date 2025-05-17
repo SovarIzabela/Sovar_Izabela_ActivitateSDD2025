@@ -1,5 +1,4 @@
-﻿  Seminar_13.05.c
-C:\Users\Iza\Desktop\sdd_2025\Project1\Seminar_13.05.c(26,2): warning C4091: 'typedef ': ignored on left of 'Nod' when no variable is declared
-C:\Users\Iza\Desktop\sdd_2025\Project1\Seminar_13.05.c(38,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Iza\Desktop\sdd_2025\Project1\Seminar_13.05.c(62,9): warning C4013: 'calculeazaInaltimeArbore' undefined; assuming extern returning int
+﻿  Heap.c
+C:\Users\Iza\Desktop\sdd_2025\Project1\Heap.c(34,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Iza\Desktop\sdd_2025\Project1\Heap.c(150,1): warning C4715: 'extrageMasina': not all control paths return a value
   Project1.vcxproj -> C:\Users\Iza\Desktop\sdd_2025\Project1\x64\Debug\Project1.exe

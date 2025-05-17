@@ -78,5 +78,8 @@
     <ClCompile Include="Seminar_13.05.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Heap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
