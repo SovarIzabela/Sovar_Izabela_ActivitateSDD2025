@@ -81,5 +81,11 @@
     <ClCompile Include="Heap.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="heap2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="heap3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -134,6 +134,8 @@
     <ClCompile Include="HashTable_Carte.c" />
     <ClCompile Include="HashTable_Student.c" />
     <ClCompile Include="Heap.c" />
+    <ClCompile Include="heap2.c" />
+    <ClCompile Include="heap3.c" />
     <ClCompile Include="ListaDublaCladire.c" />
     <ClCompile Include="ListaDublaFarmacie.c" />
     <ClCompile Include="ListaDublaLaptop.c" />
