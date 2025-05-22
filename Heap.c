@@ -16,169 +16,208 @@
 //
 //
 //struct Heap {
+//
 //	Masina* vector;
+//	int nrmasini;
 //	int lungime;
-//	int nrMasini;
+//
 //};
 //typedef struct Heap Heap;
 //
-//Masina citireMasinaDinFisier(FILE* file) {
-//	char buffer[100];
-//	char sep[3] = ",\n";
-//	fgets(buffer, 100, file);
-//	char* aux;
-//	Masina m1;
-//	aux = strtok(buffer, sep);
-//	m1.id = atoi(aux);
-//	m1.nrUsi = atoi(strtok(NULL, sep));
-//	m1.pret = atof(strtok(NULL, sep));
-//	aux = strtok(NULL, sep);
-//	m1.model = malloc(strlen(aux) + 1);
-//	strcpy_s(m1.model, strlen(aux) + 1, aux);
+//void afisareMasina(Masina m) {
 //
-//	aux = strtok(NULL, sep);
-//	m1.numeSofer = malloc(strlen(aux) + 1);
-//	strcpy_s(m1.numeSofer, strlen(aux) + 1, aux);
-//
-//	m1.serie = *strtok(NULL, sep);
-//	return m1;
+//	printf("ID: %d\n", m.id);
+//	printf("NrUsi: %d\n", m.nrUsi);
+//	printf("Pret: %.2f\n", m.pret);
+//	printf("Model: %s\n", m.model);
+//	printf("NumeSofer: %s\n", m.numeSofer);
+//	printf("Serie: %c\n\n", m.serie);
 //}
 //
-//void afisareMasina(Masina masina) {
-//	printf("Id: %d\n", masina.id);
-//	printf("Nr. usi : %d\n", masina.nrUsi);
-//	printf("Pret: %.2f\n", masina.pret);
-//	printf("Model: %s\n", masina.model);
-//	printf("Nume sofer: %s\n", masina.numeSofer);
-//	printf("Serie: %c\n\n", masina.serie);
-//}
-//
-//Heap initializareHeap(int lungime) {
-//	
-//	Heap heap;
-//	heap.lungime = lungime;
-//	heap.nrMasini = 0;
-//
-//	heap.vector = (Masina*)malloc(sizeof(Masina) * lungime);
-//	return heap;
-//
-//
-//
-//}
-//
-//void filtreazaHeap(Heap heap, int pozitieNod) {
-//	
-//	int fiuStanga = 2 * pozitieNod + 1;
-//	int fiuDreapta = 2 * pozitieNod + 2;
-//	int pozMaxim = pozitieNod;
-//
-//	if (fiuStanga < heap.nrMasini&&heap.vector[pozMaxim].id < heap.vector[fiuStanga].id) {
-//		pozMaxim = fiuStanga;
-//	}
-//
-//	if (fiuDreapta<heap.nrMasini&&heap.vector[pozMaxim].id < heap.vector[fiuDreapta].id) {
-//		pozMaxim = fiuDreapta;
-//	}
-//
-//	if (pozMaxim != pozitieNod) {
-//		Masina aux = heap.vector[pozMaxim];
-//		heap.vector[pozMaxim] = heap.vector[pozitieNod];
-//		heap.vector[pozitieNod] = aux;
-//		//2 * pozMaxim - 1 <= heap.nrMasini - 1;
-//		if (pozMaxim <=( heap.nrMasini - 2) / 2) {
-//			filtreazaHeap(heap, pozMaxim);
-//		}
-//
-//	}
-//
-//
-//}
-//
-//Heap citireHeapDeMasiniDinFisier(const char* numeFisier) {
-//
-//	FILE* f = fopen(numeFisier, "r");
-//	Heap h = initializareHeap(10);
-//
-//	while (!feof(f)) {
-//		h.vector[h.nrMasini++] = citireMasinaDinFisier(f);
-//	}
-//	fclose(f);
-//
-//	for (int i = ((h.nrMasini - 2) / 2); i >= 0; i--) {
-//		filtreazaHeap(h, i);
-//	}
-//
+//Heap initializareHeap( int lungime) {
+//	Heap h;
+//	h.lungime = lungime;
+//	h.nrmasini = 0;
+//	h.vector = (Masina*)malloc(sizeof(Masina) * lungime);
 //	return h;
 //}
 //
-//void afisareHeapVizibil(Heap h) {
+//
+//
+//Masina citireMasinaDinFisier(FILE* f) {
+//
+//	char buffer[100];
+//	char sep[3] = ",\n";
+//	fgets(buffer, 100, f);
+//	//char* token;
+//	Masina m;
+//	char* token = strtok(buffer, sep);
+//	m.id = atoi(token);
+//
+//	token = strtok(NULL, sep);
+//	m.nrUsi = atoi(token);
+//	token = strtok(NULL, sep);
+//	m.pret = atof(token);
+//
+//	token = strtok(NULL, sep);
+//	m.model = malloc(strlen(token) + 1);
+//	strcpy(m.model,token);
+//
+//	token = strtok(NULL, sep);
+//	m.numeSofer =malloc(strlen(token) + 1);
+//	strcpy(m.numeSofer, token);
+//
+//	token = strtok(NULL, sep);
+//	m.serie = *(token);
+//
+//	return m;
+//
+//
+//
+//
+//}
+//
+//void filtrareHeap(Heap h, int pozitieNod) {
+//
+//	int fiustanga = 2 * pozitieNod + 1;
+//	int fiudreapta = 2 * pozitieNod + 2;
+//	int maxim = pozitieNod;
+//
+//	if (fiustanga < h.nrmasini && h.vector[maxim].id < h.vector[fiustanga].id) {
+//		maxim = fiustanga;
+//	}
+//	if (fiudreapta < h.nrmasini && h.vector[maxim].id < h.vector[fiudreapta].id) {
+//		maxim = fiudreapta;
+//	}
+//
+//
+//	if (maxim != pozitieNod) {
+//
+//		Masina aux = h.vector[maxim];
+//		h.vector[maxim] = h.vector[pozitieNod];
+//		h.vector[pozitieNod] = aux;
+//
+//		if (maxim <= (h.nrmasini - 2) / 2) {
+//
+//			filtrareHeap(h, maxim);
+//		}
+//
+//
+//
+//	}
+//
+//}
+//
+//
+//
+//Heap citireHeapDeMasiniDinFisier(const char* numeFisier) {
+//
+//	Heap h1 = initializareHeap(10);
+//	FILE* f = fopen(numeFisier, "r");
+//
 //	
-//	for (int i = 0; i < h.nrMasini; i++) {
+//
+//	while (!feof(f)) {
+//		Masina m = citireMasinaDinFisier(f);
+//		h1.vector[h1.nrmasini++] = m;
+//
+//	}
+//	fclose(f);
+//	for (int i = ((h1.nrmasini - 2) / 2); i >=0; i--) {
+//		filtrareHeap(h1, i);
+//	}
+//	return h1;
+// }
+//
+//
+//void afisareHeap(Heap h) {
+//
+//	for (int i = 0; i < h.nrmasini; i++) {
+//		afisareMasina(h.vector[i]);
+//	}
+//}
+//
+//
+//void afisareheapAscuns(Heap h) {
+//
+//	for (int i = h.nrmasini; i < h.lungime; i++) {
 //		afisareMasina(h.vector[i]);
 //	}
 //
-//}
-//
-//void afiseazaHeapAscuns(Heap heap) {
-//	
-//	for (int i = heap.nrMasini; i < heap.lungime; i++) {
-//		afisareMasina(heap.vector[i]);
-//	}
-//
 //
 //}
 //
-//Masina extrageMasina(Heap* heap) {
 //
-//	if (heap->nrMasini > 0) {
+//Masina extrageMasina(Heap* h) {
 //
-//		Masina aux = heap->vector[0];
-//		heap->vector[0] = heap->vector[heap->nrMasini - 1];
-//		heap->vector[heap->nrMasini - 1] = aux;
-//		heap->nrMasini--;
+//	if (h->nrmasini > 0) {
+//		Masina aux = h->vector[0];
+//		h->vector[0] = h->vector[h->nrmasini - 1];
+//		h->vector[h->nrmasini - 1] = aux;
+//		h->nrmasini--;
 //
-//		for (int i = ((heap->nrMasini - 2) / 2); i >= 0; i--) {
-//			filtreazaHeap(*heap, i);
+//		for (int i = (h->nrmasini - 2) / 2; i >= 0; i--) {
+//			filtrareHeap(*h, i);
 //		}
-//
 //		return aux;
 //
+//
 //	}
-//
-//
-//
-//}
-//
-//void dezalocareHeap(Heap* heap) {
 //	
-//	for (int i = 0; i < heap->lungime; i++) {
 //
-//		free(heap->vector[i].model);
-//		free(heap->vector[i].numeSofer);
+//}
+//
+//
+//void dezalocareHeap(Heap* h) {
+//
+//	for (int i = 0; i < h->lungime; i++) {
+//		free(h->vector[i].model);
+//		free(h->vector[i].numeSofer);
+//		
+//	}
+//	free(h->vector);
+//	h->lungime = 0;
+//	h->nrmasini = 0;
+//	h->vector = NULL;
+//}
+//
+//void adaugaMasinaHeap(Heap* h, Masina m) {
+//
+//	if (h->nrmasini < h->lungime) {
+//		h->vector[h->nrmasini++] = m;
 //
 //	}
-//	free(heap->vector);
-//	heap->vector = NULL;
-//	heap->lungime = 0;
-//	heap->nrMasini = 0;
+//	else {
+//		return"heap plin";
+//	}
 //
+//	for (int i = (h->nrmasini - 2) / 2; i >= 0; i--) {
+//		filtrareHeap(*h, i);
+//	}
 //
 //
 //}
+//
+//
 //
 //int main() {
 //
+//	Heap h = initializareHeap(15);
+//	Masina m1 = { 17,5,20000.5,_strdup("dacia"),_strdup("valy"), 'd' };
+//	adaugaMasinaHeap(&h, m1);
+//	Heap h1 = citireHeapDeMasiniDinFisier("masini_heap.txt");
+//	afisareHeap(h);
+//	
+//	
 //
 //
-//	Heap heap = citireHeapDeMasiniDinFisier("masini.txt");
-//	afisareHeapVizibil(heap);
+//	afisareHeap(h1);
+//	afisareMasina(extrageMasina(&h1));
 //
-//	printf("----Masini extrase----\n");
-//	afisareMasina(extrageMasina(&heap));
-//
-//	printf("----Masini ascunse----\n");
-//	afiseazaHeapAscuns(heap);
-//
-//	dezalocareHeap(&heap);
+//	afisareheapAscuns(h1);
+//	
+//	free(m1.model);
+//	free(m1.numeSofer);
+//	dezalocareHeap(&h1);
 //	return 0;
 //}

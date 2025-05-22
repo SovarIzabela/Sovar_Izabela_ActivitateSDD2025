@@ -184,7 +184,7 @@
 //		heap->nrElemente--;
 //
 //		for (int i = (h.nrElemente - 2) / 2; i >= 0; i--) {
-//		filtreazaHeap(h, i);
+//		filtreazaHeap(*h, i);
 //	}
 //		return aux;
 //	}

@@ -87,5 +87,14 @@
     <ClCompile Include="heap3.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="arbori.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="arbori2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STIVA COADA.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

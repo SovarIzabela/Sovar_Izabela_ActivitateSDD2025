@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="arbori.c" />
+    <ClCompile Include="arbori2.c" />
     <ClCompile Include="Cladire.c" />
     <ClCompile Include="Farmacie.c" />
     <ClCompile Include="FileName.c" />
@@ -149,6 +151,7 @@
     <ClCompile Include="Seminar17martie.c" />
     <ClCompile Include="Seminar_10.05.c" />
     <ClCompile Include="Seminar_13.05.c" />
+    <ClCompile Include="STIVA COADA.C" />
     <ClCompile Include="Student.c" />
     <ClCompile Include="task.c" />
   </ItemGroup>
