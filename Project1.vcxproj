@@ -152,6 +152,7 @@
     <ClCompile Include="Seminar_10.05.c" />
     <ClCompile Include="Seminar_13.05.c" />
     <ClCompile Include="STIVA COADA.C" />
+    <ClCompile Include="stivaCoada2.c" />
     <ClCompile Include="Student.c" />
     <ClCompile Include="task.c" />
   </ItemGroup>

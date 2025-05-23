@@ -1,2 +1,5 @@
-﻿  STIVA COADA.C
+﻿  stivaCoada2.c
+C:\Users\Iza\Desktop\sdd_2025\Project1\stivaCoada2.c(33,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Iza\Desktop\sdd_2025\Project1\stivaCoada2.c(164,22): warning C4047: 'function': 'Nod **' differs in levels of indirection from 'Nod *'
+C:\Users\Iza\Desktop\sdd_2025\Project1\stivaCoada2.c(164,22): warning C4024: 'dequeue': different types for formal and actual parameter 1
   Project1.vcxproj -> C:\Users\Iza\Desktop\sdd_2025\Project1\x64\Debug\Project1.exe
